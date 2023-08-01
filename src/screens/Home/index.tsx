@@ -11,7 +11,10 @@ import image from "../../assets/stories.png"
 import image2 from "../../assets/stories1.png"
 import image3 from "../../assets/stories2.png"
 import image4 from "../../assets/stories3.png"
-import postImage from "../../assets/image.png";
+import post1 from "../../assets/post1.png"
+import post2 from "../../assets/post2.png"
+import post3 from "../../assets/post3.png"
+import post4 from "../../assets/post4.png"
 
 const data = [
     {
@@ -76,6 +79,37 @@ const data = [
     },
 ]
 
+const postData = [
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post1,
+        username: 'f1',
+        subtitle: 'Welcome to the grid, APXGP',
+        profileURL: image4
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post2,
+        username: 'alexpalou',
+        subtitle: 'Ready for Qualifying',
+        profileURL: image2
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post3,
+        username: 'oceanbymr',
+        subtitle: 'driving in Indianapolis this weekend',
+        profileURL: image3
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post4,
+        username: 'lewis',
+        subtitle: 'Tommy X Awake',
+        profileURL: image
+    }
+]
+
 export function Home() {
   return (
     <View style={styles.container}>
@@ -97,16 +131,17 @@ export function Home() {
             )}
             />
         </View>
-        <View style={styles.content}>
+        <FlatList data={postData} keyExtractor={item => item.id} renderItem={item => (
+            <View style={styles.content}>
                 <View style={styles.contentHeader}>
                     <View style={styles.contentHeaderLeft}>
-                        <Image style={styles.contentHeaderLeftImage} source={image}/>
-                        <Text style={styles.contentHeaderLeftImageText}>Lucas</Text>
+                        <Image style={styles.contentHeaderLeftImage} source={item.item.profileURL}/>
+                        <Text style={styles.contentHeaderLeftImageText}>{item.item.username}</Text>
                     </View>
                     <Points />
                 </View>
                 <View style={styles.contentImage}>
-                    <Image style={styles.postImage} source={image} />
+                    <Image style={styles.postImage} source={item.item.postURL} />
                 </View>
 
                 <View style={styles.contentFooter}>
@@ -123,10 +158,10 @@ export function Home() {
                         <Text
                             style={styles.contentFooterText1}
                         >
-                            lewis
+                            {item.item.username}&nbsp;
                         </Text>
                         <Text style={styles.contentFooterText}>
-                            How IOT is changing the world?
+                            {item.item.subtitle}
                         </Text>
                     </View>
                     <Text
@@ -140,9 +175,8 @@ export function Home() {
                         Há 22 horas
                     </Text>
                 </View>
-        </View>
-
-
+            </View>
+        )}/>
     </View>
   );
 }
