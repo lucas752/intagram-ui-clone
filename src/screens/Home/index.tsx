@@ -2,70 +2,71 @@ import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import Logo from "../../assets/logo.svg"
 import Stroke from "../../assets/stroke.svg"
 import Message from "../../assets/message.svg"
-import storieImage from "../../assets/stories.png"
-import storieImage2 from "../../assets/stories1.png"
-import storieImage3 from "../../assets/stories2.png"
-import storieImage4 from "../../assets/stories3.png"
+import Points from "../../assets/points.svg"
+import image from "../../assets/stories.png"
+import image2 from "../../assets/stories1.png"
+import image3 from "../../assets/stories2.png"
+import image4 from "../../assets/stories3.png"
 
 const data = [
     {
         id: Math.random().toString(36).substring(2,27),
-        photoURL: storieImage,
+        photoURL: image,
         username: 'lewis'
     },
     {
         id: Math.random().toString(36).substring(2,27),
-        photoURL: storieImage2,
+        photoURL: image2,
         username: 'alexpalou'
     },
     {
         id: Math.random().toString(36).substring(2,27),
-        photoURL: storieImage3,
+        photoURL: image3,
         username: 'oceanbymr'
     },
     {
         id: Math.random().toString(36).substring(2,27),
-        photoURL: storieImage4,
+        photoURL: image4,
         username: 'f1'
     },
     {
         id: Math.random().toString(36).substring(2,27),
-        photoURL: storieImage,
+        photoURL: image,
         username: 'lewisha...'
     },
     {
         id: Math.random().toString(36).substring(2,27),
-        photoURL: storieImage2,
+        photoURL: image2,
         username: 'alexpalou'
     },
     {
         id: Math.random().toString(36).substring(2,27),
-        photoURL: storieImage3,
+        photoURL: image3,
         username: 'oceanbymr'
     },
     {
         id: Math.random().toString(36).substring(2,27),
-        photoURL: storieImage4,
+        photoURL: image4,
         username: 'f1'
     },
     {
         id: Math.random().toString(36).substring(2,27),
-        photoURL: storieImage,
+        photoURL: image,
         username: 'lewisha...'
     },
     {
         id: Math.random().toString(36).substring(2,27),
-        photoURL: storieImage2,
+        photoURL: image2,
         username: 'alexpalou'
     },
     {
         id: Math.random().toString(36).substring(2,27),
-        photoURL: storieImage3,
+        photoURL: image3,
         username: 'oceanbymr'
     },
     {
         id: Math.random().toString(36).substring(2,27),
-        photoURL: storieImage4,
+        photoURL: image4,
         username: 'f1'
     },
 ]
@@ -91,6 +92,16 @@ export function Home() {
             )}
             />
         </View>
+        <View style={styles.content}>
+                <View style={styles.contentHeader}>
+                    <View style={styles.contentHeaderLeft}>
+                        <Image style={styles.contentHeaderLeftImage} source={image}/>
+                        <Text style={styles.contentHeaderLeftImageText}>Lucas</Text>
+                    </View>
+                    <Points />
+                </View>
+        </View>
+
     </View>
   );
 }
@@ -119,12 +130,10 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingLeft: 10,
     //height: 115,
-    alignContent: 'center',
+    alignItems: 'center',
     paddingVertical: 10
   },
   storiesCard: {
-    borderWidth: 2,
-    borderColor: "#ff0267",
     borderRadius: 50,
     marginRight: 14,
     padding: 2,
@@ -132,7 +141,9 @@ const styles = StyleSheet.create({
   storiesCardImage: {
     width: 64,
     height: 64,
-    borderRadius: 50
+    borderRadius: 50,
+    borderWidth: 2,
+    borderColor: "#ff0267",
   },
   storiesUsername: {
     color: '#FFF',
@@ -140,5 +151,32 @@ const styles = StyleSheet.create({
   },
   storiesContainer: {
     alignItems: 'center'
+  },
+  content: {
+    width: '100%',
+    marginBottom: 10
+  },
+  contentHeader: {
+    height: 52,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    paddingHorizontal: 10
+  },
+  contentHeaderLeft: {
+    height: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  contentHeaderLeftImage: {
+    width: 30,
+    height: 30,
+    borderRadius: 50,
+    borderWidth: 2,
+    borderColor: "#ff0267",
+  },
+  contentHeaderLeftImageText: {
+    color: "#fff",
   }
 });
