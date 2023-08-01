@@ -2,11 +2,16 @@ import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import Logo from "../../assets/logo.svg"
 import Stroke from "../../assets/stroke.svg"
 import Message from "../../assets/message.svg"
+import Bookmark from "../../assets/Bookmark.svg"
+import Heart from "../../assets/Heart.svg"
+import Comment from "../../assets/Comment.svg"
+import Share from "../../assets/Share.svg"
 import Points from "../../assets/points.svg"
 import image from "../../assets/stories.png"
 import image2 from "../../assets/stories1.png"
 import image3 from "../../assets/stories2.png"
 import image4 from "../../assets/stories3.png"
+import postImage from "../../assets/image.png";
 
 const data = [
     {
@@ -100,7 +105,43 @@ export function Home() {
                     </View>
                     <Points />
                 </View>
+                <View style={styles.contentImage}>
+                    <Image style={styles.postImage} source={image} />
+                </View>
+
+                <View style={styles.contentFooter}>
+                    <View style={styles.contentFooterLeft}>
+                        <Heart/>
+                        <Comment/>
+                        <Share/>
+                    </View>
+                    <Bookmark />
+                </View>
+
+                <View style={styles.contentFooterTexts}>
+                    <View style={styles.subtitleUser}>
+                        <Text
+                            style={styles.contentFooterText1}
+                        >
+                            lewis
+                        </Text>
+                        <Text style={styles.contentFooterText}>
+                            How IOT is changing the world?
+                        </Text>
+                    </View>
+                    <Text
+                        style={[styles.contentFooterText2, styles.contentFooterText]}
+                    >
+                        Ver todos os 610 comentários
+                    </Text>
+                    <Text
+                        style={[styles.contentFooterText3, styles.contentFooterText]}
+                    >
+                        Há 22 horas
+                    </Text>
+                </View>
         </View>
+
 
     </View>
   );
@@ -170,13 +211,57 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   contentHeaderLeftImage: {
-    width: 30,
-    height: 30,
+    width: 35,
+    height: 35,
     borderRadius: 50,
     borderWidth: 2,
     borderColor: "#ff0267",
   },
   contentHeaderLeftImageText: {
     color: "#fff",
+  },
+  contentImage: {
+    width: "100%",
+    height: 355,
+  },
+  postImage: {
+    width: '100%',
+    height: '100%'
+  },
+  contentFooter: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+    marginTop: 10
+  },
+  contentFooterLeft: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 10
+  },
+  contentFooterText: {
+    color: "#fff",
+  },
+  contentFooterTexts: {
+    paddingLeft: 10,
+    marginTop: 6,
+    gap: 10,
+  },
+  contentFooterText1: {
+    fontSize: 14,
+    fontWeight: '900',
+    color: '#FFF'
+  },
+
+  contentFooterText2: {
+    fontSize: 14,
+  },
+  contentFooterText3: {
+    fontSize: 10,
+    marginLeft: 2
+  },
+  subtitleUser: {
+    flexDirection: 'row'
   }
 });
