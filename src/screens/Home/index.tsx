@@ -10,7 +10,7 @@ import Points from "../../assets/points.svg"
 import House from "../../assets/house.svg"
 import Search from "../../assets/search.svg"
 import Union from "../../assets/union.svg"
-import Store from "../../assets/store.svg"
+import Add from "../../assets/add.svg"
 import image from "../../assets/stories.png"
 import image2 from "../../assets/stories1.png"
 import image3 from "../../assets/stories2.png"
@@ -230,7 +230,7 @@ export function Home() {
         <View style={styles.footer}>
             <House/>
             <Search/>
-            <Store/>
+            <Add/>
             <Union/>
             <Image source={profile} style={styles.footerProfile}/>
         </View>
