@@ -7,6 +7,10 @@ import Heart from "../../assets/Heart.svg"
 import Comment from "../../assets/Comment.svg"
 import Share from "../../assets/Share.svg"
 import Points from "../../assets/points.svg"
+import House from "../../assets/house.svg"
+import Search from "../../assets/search.svg"
+import Union from "../../assets/union.svg"
+import Store from "../../assets/store.svg"
 import image from "../../assets/stories.png"
 import image2 from "../../assets/stories1.png"
 import image3 from "../../assets/stories2.png"
@@ -15,6 +19,7 @@ import post1 from "../../assets/post1.png"
 import post2 from "../../assets/post2.png"
 import post3 from "../../assets/post3.png"
 import post4 from "../../assets/post4.png"
+import profile from "../../assets/profile.png"
 
 const data = [
     {
@@ -82,32 +87,76 @@ const data = [
 const postData = [
     {
         id: Math.random().toString(36).substring(2,27),
-        postURL: post1,
-        username: 'f1',
-        subtitle: 'Welcome to the grid, APXGP',
-        profileURL: image4
-    },
-    {
-        id: Math.random().toString(36).substring(2,27),
         postURL: post2,
         username: 'alexpalou',
         subtitle: 'Ready for Qualifying',
-        profileURL: image2
-    },
-    {
-        id: Math.random().toString(36).substring(2,27),
-        postURL: post3,
-        username: 'oceanbymr',
-        subtitle: 'driving in Indianapolis this weekend',
-        profileURL: image3
+        profileURL: image2,
+        comment: '2000',
+        hours: '5'
     },
     {
         id: Math.random().toString(36).substring(2,27),
         postURL: post4,
         username: 'lewis',
         subtitle: 'Tommy X Awake',
-        profileURL: image
-    }
+        profileURL: image,
+        comment: '15322',
+        hours: '8'
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post3,
+        username: 'oceanbymr',
+        subtitle: 'driving in Indianapolis this weekend',
+        profileURL: image3,
+        comment: '610',
+        hours: '13'
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post1,
+        username: 'f1',
+        subtitle: 'Welcome to the grid, APXGP',
+        profileURL: image4,
+        comment: '4589',
+        hours: '23'
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post2,
+        username: 'alexpalou',
+        subtitle: 'Ready for Qualifying',
+        profileURL: image2,
+        comment: '2000',
+        hours: '5'
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post4,
+        username: 'lewis',
+        subtitle: 'Tommy X Awake',
+        profileURL: image,
+        comment: '15322',
+        hours: '8'
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post3,
+        username: 'oceanbymr',
+        subtitle: 'driving in Indianapolis this weekend',
+        profileURL: image3,
+        comment: '610',
+        hours: '13'
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post1,
+        username: 'f1',
+        subtitle: 'Welcome to the grid, APXGP',
+        profileURL: image4,
+        comment: '4589',
+        hours: '23'
+    },
 ]
 
 export function Home() {
@@ -167,16 +216,24 @@ export function Home() {
                     <Text
                         style={[styles.contentFooterText2, styles.contentFooterText]}
                     >
-                        Ver todos os 610 comentários
+                        Ver todos os {item.item.comment} comentários
                     </Text>
                     <Text
                         style={[styles.contentFooterText3, styles.contentFooterText]}
                     >
-                        Há 22 horas
+                        Há {item.item.hours} horas
                     </Text>
                 </View>
             </View>
         )}/>
+
+        <View style={styles.footer}>
+            <House/>
+            <Search/>
+            <Store/>
+            <Union/>
+            <Image source={profile} style={styles.footerProfile}/>
+        </View>
     </View>
   );
 }
@@ -297,5 +354,18 @@ const styles = StyleSheet.create({
   },
   subtitleUser: {
     flexDirection: 'row'
+  },
+  footer: {
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+    justifyContent: 'space-between',
+    width: '100%',
+    height: 60,
+    alignItems: 'center',
+  },
+  footerProfile: {
+    height: 28,
+    width: 28,
+    borderRadius: 50
   }
 });
