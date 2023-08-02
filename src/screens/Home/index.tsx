@@ -24,6 +24,11 @@ import profile from "../../assets/profile.png"
 const data = [
     {
         id: Math.random().toString(36).substring(2,27),
+        photoURL: profile,
+        username: 'Seu story'
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
         photoURL: image,
         username: 'lewis'
     },
@@ -92,7 +97,8 @@ const postData = [
         subtitle: 'Ready for Qualifying',
         profileURL: image2,
         comment: '2000',
-        hours: '5'
+        hours: '5',
+        likes: '85.763'
     },
     {
         id: Math.random().toString(36).substring(2,27),
@@ -101,7 +107,8 @@ const postData = [
         subtitle: 'Tommy X Awake',
         profileURL: image,
         comment: '15322',
-        hours: '8'
+        hours: '8',
+        likes: '2.654.322'
     },
     {
         id: Math.random().toString(36).substring(2,27),
@@ -110,7 +117,8 @@ const postData = [
         subtitle: 'driving in Indianapolis this weekend',
         profileURL: image3,
         comment: '610',
-        hours: '13'
+        hours: '13',
+        likes: '6.764'
     },
     {
         id: Math.random().toString(36).substring(2,27),
@@ -119,7 +127,8 @@ const postData = [
         subtitle: 'Welcome to the grid, APXGP',
         profileURL: image4,
         comment: '4589',
-        hours: '23'
+        hours: '23',
+        likes: '565.143'
     },
     {
         id: Math.random().toString(36).substring(2,27),
@@ -128,7 +137,8 @@ const postData = [
         subtitle: 'Ready for Qualifying',
         profileURL: image2,
         comment: '2000',
-        hours: '5'
+        hours: '5',
+        likes: '85.763'
     },
     {
         id: Math.random().toString(36).substring(2,27),
@@ -137,7 +147,8 @@ const postData = [
         subtitle: 'Tommy X Awake',
         profileURL: image,
         comment: '15322',
-        hours: '8'
+        hours: '8',
+        likes: '2.654.322'
     },
     {
         id: Math.random().toString(36).substring(2,27),
@@ -146,7 +157,8 @@ const postData = [
         subtitle: 'driving in Indianapolis this weekend',
         profileURL: image3,
         comment: '610',
-        hours: '13'
+        hours: '13',
+        likes: '6.764'
     },
     {
         id: Math.random().toString(36).substring(2,27),
@@ -155,7 +167,48 @@ const postData = [
         subtitle: 'Welcome to the grid, APXGP',
         profileURL: image4,
         comment: '4589',
-        hours: '23'
+        hours: '23',
+        likes: '565.143'
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post2,
+        username: 'alexpalou',
+        subtitle: 'Ready for Qualifying',
+        profileURL: image2,
+        comment: '2000',
+        hours: '5',
+        likes: '85.763'
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post4,
+        username: 'lewis',
+        subtitle: 'Tommy X Awake',
+        profileURL: image,
+        comment: '15322',
+        hours: '8',
+        likes: '2.654.322'
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post3,
+        username: 'oceanbymr',
+        subtitle: 'driving in Indianapolis this weekend',
+        profileURL: image3,
+        comment: '610',
+        hours: '13',
+        likes: '6.764'
+    },
+    {
+        id: Math.random().toString(36).substring(2,27),
+        postURL: post1,
+        username: 'f1',
+        subtitle: 'Welcome to the grid, APXGP',
+        profileURL: image4,
+        comment: '4589',
+        hours: '23',
+        likes: '565.143'
     },
 ]
 
@@ -180,7 +233,7 @@ export function Home() {
             )}
             />
         </View>
-        <FlatList data={postData} keyExtractor={item => item.id} renderItem={item => (
+        <FlatList style={styles.flatList} data={postData} keyExtractor={item => item.id} renderItem={item => (
             <View style={styles.content}>
                 <View style={styles.contentHeader}>
                     <View style={styles.contentHeaderLeft}>
@@ -203,6 +256,9 @@ export function Home() {
                 </View>
 
                 <View style={styles.contentFooterTexts}>
+                    <Text style={styles.contentFooterText1}>
+                        {item.item.likes} curtidas
+                    </Text>
                     <View style={styles.subtitleUser}>
                         <Text
                             style={styles.contentFooterText1}
@@ -246,10 +302,11 @@ const styles = StyleSheet.create({
   },
   header : {
     marginTop: 40,
-    paddingHorizontal: 10,
+    paddingHorizontal: 8,
     width: '100%',
     justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: '#1a1a1a',
     height: 56,
     flexDirection: 'row'
   },
@@ -279,7 +336,7 @@ const styles = StyleSheet.create({
   },
   storiesUsername: {
     color: '#FFF',
-    justifyContent: 'center',
+    marginRight: 15
   },
   storiesContainer: {
     alignItems: 'center'
@@ -309,10 +366,10 @@ const styles = StyleSheet.create({
     borderColor: "#ff0267",
   },
   contentHeaderLeftImageText: {
+    fontWeight: 'bold',
     color: "#fff",
   },
   contentImage: {
-    width: "100%",
     height: 355,
   },
   postImage: {
@@ -367,5 +424,8 @@ const styles = StyleSheet.create({
     height: 28,
     width: 28,
     borderRadius: 50
+  },
+  flatList: {
+    width: '100%'
   }
 });
